@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-  <main class="main-list">
+  <main class="main-structure">
     {% for post in post_list %}
     <h1><a href="{% url 'blog_app:post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
     <p>Published on: {{post.published_date|date:"D M Y"}}</p>

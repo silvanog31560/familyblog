@@ -4,15 +4,20 @@ html{
   font-family: Times, "Times New Roman", Georgia, serif;
   --primary-color: #301008;
   --secondary-color: #ed0b70;
-  --main-bg-color: #bce8de;
+  --main-bg-color: #e3ecfa;
   --main-font-color: #482673;
-  --secondary-bg-color: #f6ebf4;
+  --secondary-bg-color: #fcf5fc;
 }
 
 a{
   text-decoration: none;
   padding: 1rem;
   margin-right: 1rem;
+  color: var(--main-font-color);
+}
+
+a:visited{
+    color: var(--main-font-color);
 }
 
 a:hover{
@@ -20,9 +25,10 @@ a:hover{
   background-color: var(--main-font-color);
   border-radius: 1rem;
 }
-/*  || Utilities */
-.a-nav{
 
+/*  || Utilities */
+.no-margin{
+    margin: 0px;
 }
 
 /*  Sitewide */
@@ -42,26 +48,43 @@ body{
 }
 
 .nav-bar-structure{
-  padding: 2rem 1rem;
+  padding: 2rem 0rem;
   border-radius: 1rem;
+  width: 100%;
 }
 
 aside{
   background-color: var(--secondary-bg-color);
-  font-size: 2rem;
+  font-size: 3rem;
+  border-radius: 5px;
 }
 
 .aside-structure{
-  display: flex;
-  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.aside-nav-structure{
+    display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-around;
   align-items: center;
 }
 
 /*  Form Page */
 
 /*  Page Main */
-.main-list{
-  text-align: center;
+main{
   background-color: var(--secondary-bg-color);
-  margin: 0 10%;
+  border-radius: 5px;
+}
+
+.main-structure{
+    text-align: center;
+    margin: 10px 10%;
+    padding: 5px 0px 10px 0px;
+}
+
+input[type="button"]{
+    background-color: red;
 }

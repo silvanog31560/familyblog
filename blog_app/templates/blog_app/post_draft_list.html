@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-  <main>
+  <main class="main-structure">
     {% for post in posts %}
       <p>Created: {{ post.created_date|date:'D-M-Y' }}</p>
       <h1><a href="{% url 'blog_app:post_detail' pk=post.pk %}">{{ post.title }}</a></h1>

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-  <main>
+  <main class="main-structure">
     <h1>{{ post.title }}</h1>
     {% if post.published_date %}
       <p class="utc-time">{{ post.published_date }}</p>
@@ -20,6 +20,8 @@
     <a href="{% url 'blog_app:post_remove' pk=post.pk %}"><input type="button" name="" value="Remove"></a>
     {% endif %}
 
+    <hr>
+
     <a href="{% url 'blog_app:add_comment_to_post' pk=post.pk %}"><input type="button" name="" value="Add Comment"></a>
 
     {% for comment in post.comments.all %}
@@ -27,7 +29,7 @@
       {% if user.is_authenticated or comment.approved_comment %}
         {{ comment.created_date }}
         {% if not comment.approved_comment %}
-          <a href="{% url 'blog_app:comment_approve' pk=comment.pk %}"><input type="button" name="" value="Approve"></a>
+          <a class="button" href="{% url 'blog_app:comment_approve' pk=comment.pk %}"><input type="button" name="" value="Approve"></a>
           <a href="{% url 'blog_app:comment_remove' pk=comment.pk %}"><input type="button" name="" value="Remove"></a>
         {% endif %}
 
