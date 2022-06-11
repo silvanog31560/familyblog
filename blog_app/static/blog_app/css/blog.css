@@ -1,0 +1,67 @@
+/*  || General */
+html{
+  font-size: 10px;
+  font-family: Times, "Times New Roman", Georgia, serif;
+  --primary-color: #301008;
+  --secondary-color: #ed0b70;
+  --main-bg-color: #bce8de;
+  --main-font-color: #482673;
+  --secondary-bg-color: #f6ebf4;
+}
+
+a{
+  text-decoration: none;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+a:hover{
+  color: var(--secondary-bg-color);
+  background-color: var(--main-font-color);
+  border-radius: 1rem;
+}
+/*  || Utilities */
+.a-nav{
+
+}
+
+/*  Sitewide */
+body{
+  background-color: var(--main-bg-color);
+  color: var(--main-font-color);
+  font-size: calc(1.6rem + 1vw);
+}
+
+.body-structure{
+  box-sizing: border-box;
+}
+
+.nav-bar{
+  background-color: var(--secondary-bg-color);
+  font-size: 2em;
+}
+
+.nav-bar-structure{
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+}
+
+aside{
+  background-color: var(--secondary-bg-color);
+  font-size: 2rem;
+}
+
+.aside-structure{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*  Form Page */
+
+/*  Page Main */
+.main-list{
+  text-align: center;
+  background-color: var(--secondary-bg-color);
+  margin: 0 10%;
+}
