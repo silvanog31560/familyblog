@@ -9,6 +9,20 @@ html{
   --secondary-bg-color: #fcf5fc;
 }
 
+body{
+  background-color: var(--main-bg-color);
+  color: var(--main-font-color);
+  font-size: calc(1.6rem + 1vw);
+}
+
+.body-structure{
+  box-sizing: border-box;
+}
+
+#home{
+    font-size: 2em;
+}
+
 a{
   text-decoration: none;
   padding: 1rem;
@@ -31,32 +45,24 @@ a:hover{
     margin: 0px;
 }
 
-/*  Sitewide */
-body{
-  background-color: var(--main-bg-color);
-  color: var(--main-font-color);
-  font-size: calc(1.6rem + 1vw);
+.no-hover:hover{
+        background-color: var(--secondary-bg-color);
 }
 
-.body-structure{
-  box-sizing: border-box;
+.margin-bottom{
+    margin-bottom: 2rem;
 }
+
+/*  Sitewide */
 
 .nav-bar{
   background-color: var(--secondary-bg-color);
-  font-size: 2em;
+  border-radius: 5px;
 }
 
 .nav-bar-structure{
   padding: 2rem 0rem;
   border-radius: 1rem;
-  width: 100%;
-}
-
-aside{
-  background-color: var(--secondary-bg-color);
-  font-size: 3rem;
-  border-radius: 5px;
 }
 
 .aside-structure{
@@ -64,14 +70,35 @@ aside{
 }
 
 .aside-nav-structure{
-    display: flex;
+  display: flex;
   flex-wrap: wrap;
   flex: 1;
   justify-content: space-around;
   align-items: center;
 }
 
+.sign-in{
+    margin-left: auto;
+}
+
 /*  Form Page */
+
+label{
+    font-size: calc(1.6rem + 1vw);
+}
+
+select{
+    font-size: calc(1.6rem + 1vw);
+}
+
+.textinputclass, #id_username, #id_password{
+    font-size: calc(1.6rem + 1vw);
+}
+
+.postcontent{
+    border: 2px solid black;
+    /*max-width: 100%;*/
+}
 
 /*  Page Main */
 main{
@@ -85,6 +112,49 @@ main{
     padding: 5px 0px 10px 0px;
 }
 
-input[type="button"]{
-    background-color: red;
+.btn{
+    color: var(--secondary-bg-color);
+    background-color: var(--main-font-color);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    line-height: 25px;
+    font-size: 2.0rem;
+}
+
+.btn-warning{
+    background-color: #fa0702;
+}
+
+@media screen and (min-width: 56rem) {
+body{
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "main aside";
+      grid-template-columns: minmax(0,3fr) 1fr;
+      gap: 20px;
+      margin: 10px 15rem;
+  }
+  header{
+    grid-area: header;
+  }
+  .main-structure{
+    grid-area: main;
+    margin: 10px 0 0 0;
+  }
+  .aside-nav-structure{
+    grid-area: aside;
+  }
+  .aside-nav-structure{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-start;
+}
+.sign-in{
+    margin: auto;
+}
 }

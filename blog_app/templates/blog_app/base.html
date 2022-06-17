@@ -2,6 +2,7 @@
 {% load static %}
 <html lang="en" dir="ltr">
   <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
     {% block title %}
     {% endblock %}
@@ -16,20 +17,20 @@
   </head>
   <body>
 
-    <nav class="nav-bar nav-bar-structure">
-      <a class="a-nav" href="{% url 'blog_app:post_list' %}">My Blog</a>
-      <a class="a-nav" href="{% url 'blog_app:about' %}">About</a>
-    </nav>
+    <header class="nav-bar nav-bar-structure">
+      <a id="home" href="{% url 'blog_app:post_list' %}">Our Blog</a>
+      <a href="{% url 'blog_app:about' %}">About</a>
+    </header>
 
-    <aside class="aside-structure">
+    <aside class="nav-bar aside-structure">
       <nav class="aside-nav-structure">
         {% if user.is_authenticated %}
           <a href="{% url 'blog_app:post_new'%}">New Post</a>
           <a href="{% url 'blog_app:post_draft_list' %}">Drafts</a>
-          <a href="{% url 'logout' %}">Log Out</a>
+          <a href="{% url 'logout' %}">Sign Out</a>
           <p class="no-margin">Welcome: {{ user.username }}</p>
         {% else %}
-          <a href="{% url 'login' %}">Login Logo!</a>
+          <a class="sign-in" href="{% url 'login' %}">Sign In!</a>
         {% endif %}
       </nav>
     </aside>

@@ -10,30 +10,30 @@
     {% if post.published_date %}
       <p class="utc-time">{{ post.published_date }}</p>
     {% else %}
-      <a href="{% url 'blog_app:post_publish' pk=post.pk %}"><input type="button" name="" value="Publish"></a>
+      <a class="no-hover" href="{% url 'blog_app:post_publish' pk=post.pk %}"><button class="btn">Publish</button></a>
     {% endif %}
 
-    <p>{{ post.text|safe|linebreaks }}</p>
+    <p>{{ post.text|safe|linebreaksbr }}</p>
 
     {% if user.is_authenticated %}
-    <a href="{% url 'blog_app:post_edit' pk=post.pk %}"><input type="button" name="" value="Edit"></a>
-    <a href="{% url 'blog_app:post_remove' pk=post.pk %}"><input type="button" name="" value="Remove"></a>
+    <a class="no-hover" href="{% url 'blog_app:post_edit' pk=post.pk %}"><button class="btn">Edit</button></a>
+    <a class="no-hover" href="{% url 'blog_app:post_remove' pk=post.pk %}"><button class="btn btn-warning">Remove</button></a>
     {% endif %}
 
     <hr>
 
-    <a href="{% url 'blog_app:add_comment_to_post' pk=post.pk %}"><input type="button" name="" value="Add Comment"></a>
+    <a class="no-hover" href="{% url 'blog_app:add_comment_to_post' pk=post.pk %}"><button class="btn margin-bottom">Add Comment</button></a>
 
     {% for comment in post.comments.all %}
       <br>
       {% if user.is_authenticated or comment.approved_comment %}
         {{ comment.created_date }}
         {% if not comment.approved_comment %}
-          <a class="button" href="{% url 'blog_app:comment_approve' pk=comment.pk %}"><input type="button" name="" value="Approve"></a>
-          <a href="{% url 'blog_app:comment_remove' pk=comment.pk %}"><input type="button" name="" value="Remove"></a>
+          <a class="no-hover" href="{% url 'blog_app:comment_approve' pk=comment.pk %}"><button class="btn">Approve</button></a>
+          <a class="no-hover" href="{% url 'blog_app:comment_remove' pk=comment.pk %}"><button class="btn btn-warning">Remove</button></a>
         {% endif %}
 
-        <p>{{ comment.text|safe|linebreaks }}</p>
+        <p>{{ comment.text|safe|linebreaksbr }}</p>
         <p>Posted by: {{ comment.author }}</p>
       {% endif %}
 

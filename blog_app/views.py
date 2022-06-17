@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404, redirect
 from blog_app.models import Post, Comment
 from blog_app.forms import PostForm, CommentForm
 from django.views.generic import TemplateView, DetailView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.utils import timezone
 
 
@@ -64,24 +64,8 @@ class CommentFormView(FormView):
         comment.save()
         return redirect('blog_app:post_detail', pk=post.pk)
 
-    # def get_success_url(self):
-        # return render(request, "blog_app:post_detail/pk")
-        # return HttpResponseRedirect(reverse_lazy('blog_app:post_detail/pk'))
 
 ###########################################################################
-
-# def add_comment_to_post(request, pk):
-#     post = get_object_or_404(Post,pk=pk)
-#     if request.method == 'POST':
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             comment = form.save(commit=False)
-#             comment.post = post
-#             comment.save()
-#             return redirect('post_detail', pk=post.pk)
-#     else:
-#         form = CommentForm()
-#     return render(request,'blog_app/comment_form.html',{'form':form})
 
 @login_required
 def comment_approve(request,pk):
